@@ -1,59 +1,59 @@
 {
-  "accuracy": 0.90875,
-  "precision_macro": 0.9113296234958297,
-  "recall_macro": 0.90875,
-  "f1_macro": 0.906296636534316,
-  "auc_macro_ovr": 0.9832229166666667,
+  "accuracy": 0.908125,
+  "precision_macro": 0.9096868643401851,
+  "recall_macro": 0.9081250000000001,
+  "f1_macro": 0.9057766729588341,
+  "auc_macro_ovr": 0.9834937499999999,
   "per_class": {
     "glioma": {
-      "precision": 0.9495268138801262,
-      "recall": 0.7525,
-      "f1": 0.8396094839609484,
+      "precision": 0.9380804953560371,
+      "recall": 0.7575,
+      "f1": 0.8381742738589212,
       "support": 400
     },
     "meningioma": {
-      "precision": 0.8547619047619047,
-      "recall": 0.8975,
-      "f1": 0.875609756097561,
+      "precision": 0.847255369928401,
+      "recall": 0.8875,
+      "f1": 0.8669108669108669,
       "support": 400
     },
     "notumor": {
-      "precision": 0.9029345372460497,
-      "recall": 1.0,
-      "f1": 0.9489916963226572,
+      "precision": 0.9172413793103448,
+      "recall": 0.9975,
+      "f1": 0.9556886227544911,
       "support": 400
     },
     "pituitary": {
-      "precision": 0.9380952380952381,
-      "recall": 0.985,
-      "f1": 0.9609756097560975,
+      "precision": 0.9361702127659575,
+      "recall": 0.99,
+      "f1": 0.9623329283110571,
       "support": 400
     }
   },
   "confusion_matrix": [
     [
-      301,
-      57,
-      37,
-      5
+      303,
+      60,
+      30,
+      7
     ],
     [
-      14,
-      359,
+      19,
+      355,
       6,
-      21
+      20
     ],
     [
       0,
-      0,
-      400,
+      1,
+      399,
       0
     ],
     [
-      2,
-      4,
+      1,
+      3,
       0,
-      394
+      396
     ]
   ],
   "n_test": 1600,
@@ -67,9 +67,9 @@
     "paper_accuracy": 0.9712,
     "paper_auc": 0.9984,
     "paper_recall": 0.9659,
-    "delta_accuracy": -0.062450000000000006,
-    "delta_auc": -0.01517708333333323,
-    "delta_recall": -0.057150000000000034
+    "delta_accuracy": -0.06307499999999999,
+    "delta_auc": -0.01490625000000001,
+    "delta_recall": -0.05777499999999991
   },
   "limitations_note": "Results are on a public research MRI dataset with the given Kaggle Training/Testing split (not the paper's 5-fold CV after augmentation). Metrics are research benchmarks only \u2014 no clinical claims. Always interpret accuracy together with recall/sensitivity and AUC; per-class scores matter for minority error modes.",
   "train_protocol": {

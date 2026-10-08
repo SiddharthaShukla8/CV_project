@@ -1,0 +1,32 @@
+{
+  "n_train": 4480,
+  "n_val": 1120,
+  "n_test": 1600,
+  "class_names": [
+    "glioma",
+    "meningioma",
+    "notumor",
+    "pituitary"
+  ],
+  "img_size": [
+    299,
+    299
+  ],
+  "batch_size": 16,
+  "val_split_of_training": 0.2,
+  "seed": 42,
+  "split_policy": "Official Kaggle Training/Testing folders. From Training/, hold out 20% as validation (seed=42); Testing/ is the final test set.",
+  "framework": "TensorFlow/Keras",
+  "backbone": "InceptionV3 ImageNet pretrained, include_top=False",
+  "head": "GAP -> Dense(256, relu) -> Dropout(0.3) -> Dense(4, softmax)",
+  "phase1": "backbone frozen, Adam 1e-3",
+  "phase2": "unfreeze last 50 backbone layers, Adam 1e-5",
+  "head_epochs_ran": 8,
+  "finetune_epochs_ran": 5,
+  "augmentation": "train only: horizontal flip, ~\u00b110\u00b0 rotation, \u00b110% zoom",
+  "paper_target": {
+    "accuracy": 0.9712,
+    "auc": 0.9984,
+    "recall": 0.9659
+  }
+}
