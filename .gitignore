@@ -1,30 +1,7 @@
-# Data (large)
-data/
-!data/.gitkeep
-
-# Python
 .venv/
+data/
+results/checkpoints/*.keras
 __pycache__/
-*.py[cod]
-*.egg-info/
-.ipynb_checkpoints/
-
-# Models / checkpoints
-*.h5
-*.keras
-*.ckpt
-checkpoints/
-models/
-
-# OS / IDE
+*.pyc
 .DS_Store
-.idea/
-.vscode/
-
-# Secrets
-.env
-kaggle.json
-
-# Misc
-*.log
-wandb/
+.mplconfig/
