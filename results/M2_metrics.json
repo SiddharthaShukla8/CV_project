@@ -1,0 +1,86 @@
+{
+  "accuracy": 0.90875,
+  "precision_macro": 0.9113296234958297,
+  "recall_macro": 0.90875,
+  "f1_macro": 0.906296636534316,
+  "auc_macro_ovr": 0.9832229166666667,
+  "per_class": {
+    "glioma": {
+      "precision": 0.9495268138801262,
+      "recall": 0.7525,
+      "f1": 0.8396094839609484,
+      "support": 400
+    },
+    "meningioma": {
+      "precision": 0.8547619047619047,
+      "recall": 0.8975,
+      "f1": 0.875609756097561,
+      "support": 400
+    },
+    "notumor": {
+      "precision": 0.9029345372460497,
+      "recall": 1.0,
+      "f1": 0.9489916963226572,
+      "support": 400
+    },
+    "pituitary": {
+      "precision": 0.9380952380952381,
+      "recall": 0.985,
+      "f1": 0.9609756097560975,
+      "support": 400
+    }
+  },
+  "confusion_matrix": [
+    [
+      301,
+      57,
+      37,
+      5
+    ],
+    [
+      14,
+      359,
+      6,
+      21
+    ],
+    [
+      0,
+      0,
+      400,
+      0
+    ],
+    [
+      2,
+      4,
+      0,
+      394
+    ]
+  ],
+  "n_test": 1600,
+  "class_names": [
+    "glioma",
+    "meningioma",
+    "notumor",
+    "pituitary"
+  ],
+  "paper_comparison": {
+    "paper_accuracy": 0.9712,
+    "paper_auc": 0.9984,
+    "paper_recall": 0.9659,
+    "delta_accuracy": -0.062450000000000006,
+    "delta_auc": -0.01517708333333323,
+    "delta_recall": -0.057150000000000034
+  },
+  "limitations_note": "Results are on a public research MRI dataset with the given Kaggle Training/Testing split (not the paper's 5-fold CV after augmentation). Metrics are research benchmarks only \u2014 no clinical claims. Always interpret accuracy together with recall/sensitivity and AUC; per-class scores matter for minority error modes.",
+  "train_protocol": {
+    "split_policy": "Official Kaggle Training/Testing folders. From Training/, hold out 20% as validation (seed=42); Testing/ is the final test set.",
+    "n_train": 4480,
+    "n_val": 1120,
+    "n_test": 1600,
+    "phase1": "backbone frozen, Adam 1e-3",
+    "phase2": "unfreeze last 50 backbone layers, Adam 1e-5",
+    "head_epochs_ran": 8,
+    "finetune_epochs_ran": 5,
+    "seed": 42
+  }
+}

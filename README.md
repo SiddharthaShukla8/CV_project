@@ -4,10 +4,10 @@
 
 | Milestone | Status |
 |---|---|
-| **M1** | Literature survey + reproducibility checklist — **Done** |
-| **M2** | InceptionV3 baseline reproduction — **Training/evaluation complete or in progress** |
-| **M3** | Hypothesis + Introduction — **Done** |
-| **M4 / M5** | **Intentionally not started — awaiting go-ahead** |
+| **M1** | Literature survey + reproducibility checklist — **Done** (see `docs/M1_*.md`) |
+| **M2** | InceptionV3 baseline reproduction — **Done** (accuracy 90.88%, AUC 0.9832, recall 0.9088; see `results/M2_metrics.json`) |
+| **M3** | Hypothesis + Introduction — **Done** (see `docs/M3_*.md`, EfficientNet-B0 **not** implemented) |
+| **M4 / M5** | **Intentionally not started — awaiting go-ahead.** |
 
 ### Current Progress
 
@@ -18,7 +18,7 @@
   - Macro and per-class Precision
   - Macro and per-class Recall
   - Macro and per-class F1
-  - AUC
+  - AUC (Macro One-vs-Rest)
   - Confusion Matrix
 - **M3 — Hypothesis + Introduction:** Completed. EfficientNet-B0 has **not** been implemented yet.
 - **M4 / M5:** Intentionally not started and awaiting approval.
@@ -43,7 +43,19 @@ The experimental protocol differs from the paper because this project uses the o
 
 ---
 
-## Dataset Split
+## M2 Results
+
+- **Accuracy:** 90.88% (0.9088)
+- **Macro Recall (Sensitivity):** 90.88% (0.9088)
+- **Macro AUC (One-vs-Rest):** 0.9832
+- **Macro Precision:** 91.13% (0.9113)
+- **Macro F1-Score:** 90.63% (0.9063)
+
+Our reproduced InceptionV3 baseline achieved 90.88% accuracy, 0.9832 AUC, and 0.9088 macro recall compared to the target paper's reported 97.12% accuracy, 0.9984 AUC, and 0.9659 recall. This gap (-6.24% accuracy, -0.0152 AUC, -0.0571 recall) exists due to CPU-only training constraints, evaluating on the fixed official Kaggle test split rather than the paper's augmented 5-fold cross-validation scheme, and training for 13 total epochs (8 head + 5 fine-tuning) instead of the paper's full training setup.
+
+---
+
+## Dataset Split (Documented Before Training)
 
 **Source:** Kaggle `masoudnickparvar/brain-tumor-mri-dataset`
 
