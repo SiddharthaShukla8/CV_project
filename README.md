@@ -45,13 +45,29 @@ The experimental protocol differs from the paper because this project uses the o
 
 ## M2 Results
 
-- **Accuracy:** 90.88% (0.9088)
-- **Macro Recall (Sensitivity):** 90.88% (0.9088)
-- **Macro AUC (One-vs-Rest):** 0.9832
-- **Macro Precision:** 91.13% (0.9113)
-- **Macro F1-Score:** 90.63% (0.9063)
+| Metric | Our Result | Paper Target (Gómez-Guzmán et al.) | Gap |
+|---|---|---|---|
+| Accuracy | 90.81% | 97.12% | -6.31% |
+| Macro Recall | 90.81% | 96.59% | -5.78% |
+| Macro F1 | 90.58% | — | — |
+| AUC (macro OvR) | 0.9835 | 0.9984 | -0.015 |
 
-Our reproduced InceptionV3 baseline achieved 90.88% accuracy, 0.9832 AUC, and 0.9088 macro recall compared to the target paper's reported 97.12% accuracy, 0.9984 AUC, and 0.9659 recall. This gap (-6.24% accuracy, -0.0152 AUC, -0.0571 recall) exists due to CPU-only training constraints, evaluating on the fixed official Kaggle test split rather than the paper's augmented 5-fold cross-validation scheme, and training for 13 total epochs (8 head + 5 fine-tuning) instead of the paper's full training setup.
+**Per-class recall:**
+- glioma: 75.75% ← weakest class, most confused
+- meningioma: 88.75%
+- notumor: 99.75%
+- pituitary: 99.00%
+
+**Gap explanation:** The paper uses 5-fold cross-validation with heavier augmentation. 
+This reproduction uses the official fixed Kaggle Training/Testing split on CPU with 
+13 total epochs (8 head + 5 fine-tune). A ~6% accuracy gap is expected and is 
+reported honestly per course requirements. No clinical claims are made.
+
+**Output files:**
+- results/M2_metrics.json
+- results/M2_confusion_matrix.png
+- results/M2_training_curves.png
+- results/checkpoints/final_inceptionv3.keras
 
 ---
 
